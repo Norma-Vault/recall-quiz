@@ -2,6 +2,18 @@
 
 All notable changes to recall-quiz. Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versioning follows [SemVer](https://semver.org/).
 
+## [1.3.1] — 2026-06-11
+
+### Fixed
+- Critical: the worked examples marked the correct option inline with a checkmark, which the model copied into delivered quizzes — revealing the answer and defeating retrieval practice. Examples now disclose the answer only in the post-reply explanation; SKILL.md Rule 5 forbids any marker, emphasis, or hint on options in delivered output, and a standing rule in question-design.md keeps contributors from reintroducing it.
+
+### Changed
+- Delivery presentation: quizzes now open with a bold label and bold stem with each option on its own line, so the quiz stands out from surrounding prose instead of blending in.
+- A one-line note that tappable answer buttons are unavailable on this surface is shown only on the first quiz of a conversation, not repeated thereafter.
+
+### Added
+- Eval #25: regression guard asserting no delivered quiz reveals or marks the correct option.
+
 ## [1.3.0] — 2026-06-11
 
 ### Added
