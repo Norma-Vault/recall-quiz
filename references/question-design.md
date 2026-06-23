@@ -21,6 +21,7 @@ The quality of a recall quiz lives almost entirely in the **distractors** — th
 - **Self-contained stem.** The user should be able to answer from memory of the answer just given, without re-reading it.
 - **Test the centre, not the corner.** Quiz the main idea of the answer, not an incidental aside.
 - **Only test what was taught.** Every option's correctness must be decidable from the answer you gave.
+- **Never reveal the correct option in delivered output.** In *this reference file* the answer is named in the “Why” line after each example, never marked inline on an option. When delivering a real quiz, show no checkmark, emphasis, or marker on any option — disclose the answer only after the user replies.
 - **Sufficiency test (decision policy gate 4).** Before writing the question, confirm the answer's own material can supply the correct option plus three or four plausible near-misses. If you cannot source the distractors from what was taught or directly implied, the item is not quizzable — expand the answer naturally (explicit trigger) or skip silently (ambient); never pad with invented options.
 
 ## 2. Distractor patterns by item type
@@ -66,7 +67,7 @@ A miss should drop the next item on that topic down a rung; a streak should clim
 **Tech / AI (discrimination):**
 > Fine-tuning and RAG both adapt a model to your domain. The key difference is:
 > A) RAG changes the model's weights; fine-tuning retrieves documents at query time
-> B) Fine-tuning changes the weights; RAG retrieves documents at query time ✅
+> B) Fine-tuning changes the weights; RAG retrieves documents at query time
 > C) Both change the weights
 > D) Neither affects what the model produces
 >
@@ -75,7 +76,7 @@ A miss should drop the next item on that topic down a rung; a streak should clim
 **Law / policy (application):**
 > A company self-certifies compliance and the obligation takes effect EU-wide on the same date with no national statute. That instrument is most likely a:
 > A) Directive
-> B) Regulation ✅
+> B) Regulation
 > C) Recommendation
 > D) Green Paper
 >
@@ -84,7 +85,7 @@ A miss should drop the next item on that topic down a rung; a streak should clim
 **Finance (recognition → discrimination):**
 > "TOB" on a Belgian brokerage account refers to the tax on:
 > A) Dividend income received
-> B) Stock-exchange transactions when you buy or sell ✅
+> B) Stock-exchange transactions when you buy or sell
 > C) Realised capital gains
 > D) Account custody fees
 >
@@ -93,7 +94,7 @@ A miss should drop the next item on that topic down a rung; a streak should clim
 **Science (mechanism):**
 > Spaced repetition improves long-term retention mainly because:
 > A) Each review is easier than the last
-> B) Effortful retrieval after partial forgetting strengthens the memory more than immediate review ✅
+> B) Effortful retrieval after partial forgetting strengthens the memory more than immediate review
 > C) It reduces the total number of reviews needed to zero
 > D) It replaces understanding with memorisation
 >
