@@ -1,6 +1,6 @@
 {
   "skill_name": "recall-quiz",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "evals": [
     {
       "id": 1,
@@ -22,7 +22,7 @@
     },
     {
       "id": 4,
-      "prompt": "Study mode — I'm prepping for my AWS certification. What's the difference between SQS and SNS?",
+      "prompt": "Study mode \u2014 I'm prepping for my AWS certification. What's the difference between SQS and SNS?",
       "expected_output": "A correct SQS vs SNS explanation followed by one MCQ on the distinction. 'Study mode' plus a certification goal arms ambient quizzing (families D and F): subsequent substantive answers in the session should also be quizzed at the canonical cadence (decision policy gate 5).",
       "files": []
     },
@@ -41,12 +41,12 @@
     {
       "id": 7,
       "prompt": "Reformat this list to use semicolons instead of commas: apples, pears, plums",
-      "expected_output": "Just the reformatted list. No quiz — purely transactional task, fails both gate 2 (suppression) and gate 3 (substance).",
+      "expected_output": "Just the reformatted list. No quiz \u2014 purely transactional task, fails both gate 2 (suppression) and gate 3 (substance).",
       "files": []
     },
     {
       "id": 8,
-      "prompt": "Quick, I'm in a meeting — what does CAP theorem stand for? No extras.",
+      "prompt": "Quick, I'm in a meeting \u2014 what does CAP theorem stand for? No extras.",
       "expected_output": "The expansion (Consistency, Availability, Partition tolerance) with zero additions and NO quiz. Urgency suppression beats any learning posture; 'no extras' is explicit.",
       "files": []
     },
@@ -82,14 +82,14 @@
     },
     {
       "id": 14,
-      "prompt": "We're hosting a pub quiz on Friday — can you draft the invitation?",
+      "prompt": "We're hosting a pub quiz on Friday \u2014 can you draft the invitation?",
       "expected_output": "A drafted invitation and nothing else. 'Pub quiz' is a topical mention (hard negative, lexicon section I), not a request to be quizzed. No recall-quiz behavior.",
       "files": []
     },
     {
       "id": 15,
-      "prompt": "Quiz me on this, but I'm in a hurry — what's the difference between TLS and SSL?",
-      "expected_output": "A correct, compact TLS vs SSL answer and NO quiz. Mixed trigger + suppression resolves to suppression (gate 2 beats gate 1), silently — no explanation of the skipped quiz unless the user asks why.",
+      "prompt": "Quiz me on this, but I'm in a hurry \u2014 what's the difference between TLS and SSL?",
+      "expected_output": "A correct, compact TLS vs SSL answer and NO quiz. Mixed trigger + suppression resolves to suppression (gate 2 beats gate 1), silently \u2014 no explanation of the skipped quiz unless the user asks why.",
       "files": []
     },
     {
@@ -101,7 +101,7 @@
     {
       "id": 17,
       "prompt": "[Ambient mode armed] What's 30 degrees Celsius in Fahrenheit?",
-      "expected_output": "Just the conversion (86°F) and NO quiz, with no comment about skipping. A pure lookup fails gate 3 (substance); in ambient mode the skip is silent.",
+      "expected_output": "Just the conversion (86\u00b0F) and NO quiz, with no comment about skipping. A pure lookup fails gate 3 (substance); in ambient mode the skip is silent.",
       "files": []
     },
     {
@@ -136,7 +136,7 @@
     },
     {
       "id": 23,
-      "prompt": "[Ambient mode armed; user is mid-debugging across several turns] The stack trace still shows the null pointer — try the next fix.",
+      "prompt": "[Ambient mode armed; user is mid-debugging across several turns] The stack trace still shows the null pointer \u2014 try the next fix.",
       "expected_output": "Debugging help only, NO quiz mid-troubleshooting (gate 6). Once the bug is confirmed fixed and the task reaches a checkpoint, one quiz on something the session taught may follow, and the reply hands straight back to the main thread.",
       "files": []
     },
@@ -144,6 +144,12 @@
       "id": 24,
       "prompt": "[User answers a quiz incorrectly] Ugh, this quiz thing is annoying and confusing.",
       "expected_output": "Gracious, non-defensive response: the kind two-sentence correction stands, the frustration is acknowledged briefly, and quizzing stops for the session (treated as opt-out) with no re-pitch and no justification of the feature.",
+      "files": []
+    },
+    {
+      "id": 25,
+      "prompt": "Explain how a hash map handles collisions, then quiz me on it.",
+      "expected_output": "A correct explanation, then one MCQ whose options are visually uniform with NO marker, checkmark, bold, or hint indicating the correct answer; the quiz stands out via a bold label and stem; the correct option and explanation are revealed only after the user replies. On the first quiz of the conversation only, a one-line note states tappable buttons aren't available here.",
       "files": []
     }
   ]
