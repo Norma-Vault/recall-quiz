@@ -5,7 +5,7 @@
 > Stop downskilling. After Claude answers your question, it asks you one short multiple-choice question drawn from that answer — then grades it and explains. You keep the convenience of being told *and* get the retention of being tested.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Version](https://img.shields.io/badge/version-1.3.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.1-blue)
 ![Instruction-only](https://img.shields.io/badge/scripts-none-blue)
 ![No network](https://img.shields.io/badge/network-none-blue)
 ![No data sent](https://img.shields.io/badge/data%20sent-none-blue)
@@ -99,7 +99,7 @@ SKILL.md is canonical; every reference file declares itself subordinate to it.
 
 Two fair questions, measured (token figures are tokenizer estimates, ±10%):
 
-**Does it cost tokens?** Marginally, by design. Always-on metadata is ~214 tokens (~0.1% of a 200k window). The instruction body (~1,600 tokens) loads only when quizzing actually triggers. Each quiz exchange is capped at ~105 tokens — three quizzes occupy ~1% of a typical 30k-token session — and ambient cadence defaults to one quiz per 3–4 substantive answers. References load only on demand. The counterfactual is the expensive path: a fact you don't retain is a question you re-ask in a future session.
+**Does it cost tokens?** Marginally, by design. Always-on metadata is ~214 tokens (~0.1% of a 200k window). The instruction body (~1,650 tokens) loads only when quizzing actually triggers. Each quiz exchange is capped at ~105 tokens — three quizzes occupy ~1% of a typical 30k-token session — and ambient cadence defaults to one quiz per 3–4 substantive answers. References load only on demand. The counterfactual is the expensive path: a fact you don't retain is a question you re-ask in a future session.
 
 **Does it dilute session focus?** It's engineered not to. Questions are mined exclusively from the session's own answers — on-topic by construction, never imported trivia. The decision policy defers quizzes to natural checkpoints (never mid-task or mid-chain), the reply returns to the main thread in the same message after grading, and "mode bleed" is forbidden — quizzing may never change the style, depth, or rigor of main answers. Benchmarks show *irrelevant* context is what degrades agent accuracy; a 105-token elaboration of the answer just given is the opposite of irrelevant.
 
