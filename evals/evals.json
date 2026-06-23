@@ -1,0 +1,150 @@
+{
+  "skill_name": "recall-quiz",
+  "version": "1.3.0",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Explain what RAG is and how it differs from fine-tuning, then quiz me on it so I actually remember.",
+      "expected_output": "A full, correct explanation of RAG vs fine-tuning, followed by exactly one multiple-choice question (4-5 options) drawn from that explanation, delivered via an interactive single-select control or a clean inline A-D list, with the answer not revealed until the user replies.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Walk me through how OAuth scopes work and make it stick.",
+      "expected_output": "A correct explanation of OAuth scopes, then one MCQ mined from it. 'Make it stick' is a retention-intent trigger (lexicon family B) and must fire the loop without the word quiz appearing in the request.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Pop quiz me on the Krebs cycle after you explain it.",
+      "expected_output": "Full explanation first, then exactly one MCQ. 'Pop quiz me' is a direct-request trigger (family A). The quiz must come after the complete answer, never before or instead of it.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Study mode — I'm prepping for my AWS certification. What's the difference between SQS and SNS?",
+      "expected_output": "A correct SQS vs SNS explanation followed by one MCQ on the distinction. 'Study mode' plus a certification goal arms ambient quizzing (families D and F): subsequent substantive answers in the session should also be quizzed at the canonical cadence (decision policy gate 5).",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Quiz me as we go. First question: what's the difference between an EU Regulation and a Directive?",
+      "expected_output": "A correct explanation of Regulation vs Directive, then one MCQ on the distinction. Ambient opt-in (family E) is now armed and persists across later substantive answers until the user opts out.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "My cat just died and I want to understand what feline kidney disease is.",
+      "expected_output": "A compassionate, informative answer about feline kidney disease and NO quiz. Emotional-load suppression (decision policy gate 2) overrides everything; grief content is never gamified.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Reformat this list to use semicolons instead of commas: apples, pears, plums",
+      "expected_output": "Just the reformatted list. No quiz — purely transactional task, fails both gate 2 (suppression) and gate 3 (substance).",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Quick, I'm in a meeting — what does CAP theorem stand for? No extras.",
+      "expected_output": "The expansion (Consistency, Availability, Partition tolerance) with zero additions and NO quiz. Urgency suppression beats any learning posture; 'no extras' is explicit.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Write a 10-question quiz about World War II for my students.",
+      "expected_output": "The requested quiz content for the students, delivered as an ordinary authoring task. NO recall-quiz behavior toward the requester: authoring quiz content for third parties is a gate-2 suppression, not a trigger, despite the word quiz appearing.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Walk me through how spaced repetition works and test my understanding, but keep it to a single question and explain my answer.",
+      "expected_output": "A correct explanation of spaced repetition, then exactly one MCQ with plausible distractors, then (after the user's reply) a one-to-two sentence explanation of why the correct option is right. No question stacking.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Stop quizzing me, it's getting annoying.",
+      "expected_output": "Immediate, gracious stop with no re-pitch, no asking why, and no further quizzes for the rest of the session (opt-out, family H).",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Drop the quizzes for now. [several turns later] OK, quiz me again.",
+      "expected_output": "After 'drop the quizzes': durable stop. After the explicit re-enable: clean resumption; the skill may briefly re-test one earlier missed item to reopen the loop, then continue normally.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "[User answers a quiz question incorrectly, conversation continues for a few turns on the same domain]",
+      "expected_output": "On the miss: a kind correction of at most two sentences explaining why the right option is right and theirs wasn't. A few turns later: the missed item re-surfaces once, reworded to test the concept rather than memory of option letters (spacing + interleaving per session-state.md).",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "We're hosting a pub quiz on Friday — can you draft the invitation?",
+      "expected_output": "A drafted invitation and nothing else. 'Pub quiz' is a topical mention (hard negative, lexicon section I), not a request to be quizzed. No recall-quiz behavior.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Quiz me on this, but I'm in a hurry — what's the difference between TLS and SSL?",
+      "expected_output": "A correct, compact TLS vs SSL answer and NO quiz. Mixed trigger + suppression resolves to suppression (gate 2 beats gate 1), silently — no explanation of the skipped quiz unless the user asks why.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "What does DNS stand for? Quiz me after.",
+      "expected_output": "Insufficient-content branch with an explicit trigger (gate 4): either the answer is naturally expanded beyond the bare expansion (what DNS does, how resolution works) so one fair MCQ with answer-sourced distractors exists, or the bare expansion is given with a one-line note that there isn't enough material yet for a useful question. Never a quiz with invented distractors from untaught material.",
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "[Ambient mode armed] What's 30 degrees Celsius in Fahrenheit?",
+      "expected_output": "Just the conversion (86°F) and NO quiz, with no comment about skipping. A pure lookup fails gate 3 (substance); in ambient mode the skip is silent.",
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "Explain OAuth and ask me an open-ended question, not multiple choice.",
+      "expected_output": "A correct OAuth explanation followed by ONE open-ended question. The explicit format request overrides the MCQ default (rule 4); answer-first, single question, and graded feedback with a short explanation still apply.",
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "Explain the OSI model, then give me three quick questions on it.",
+      "expected_output": "A correct OSI model explanation followed by exactly three compact questions. The explicit count request overrides the one-question default (rule 4); all questions are sourced from the answer, graded together or in sequence with brief explanations.",
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "[Quiz delivered] Skip this one. [Next quiz, a few answers later] Skip this one. [Next quiz] Skip this one.",
+      "expected_output": "Each 'skip this one' skips only the current question (answer revealed briefly, no grading pressure) and quizzing stays armed. After repeated consecutive skips (three), treat it as a soft opt-out: stop offering quizzes, silently, without announcing the stop.",
+      "files": []
+    },
+    {
+      "id": 21,
+      "prompt": "No more quizzes. [Later] I'm studying again, can you explain B-tree indexes?",
+      "expected_output": "A correct B-tree explanation and NO quiz. After a durable opt-out, a study-context mention (family F) alone does not re-arm quizzing; only explicit quiz-intent (a family A/D/E phrase) resumes it. If the user later says 'ok quiz me again', resume cleanly.",
+      "files": []
+    },
+    {
+      "id": 22,
+      "prompt": "Write a quiz for my students about the water cycle, and then test me on the same topic.",
+      "expected_output": "Both behaviors: the authored student quiz is delivered as the task, AND one recall question is posed to the user afterward, because the user separately and explicitly requested to be quizzed themselves (gate 2 authoring exception).",
+      "files": []
+    },
+    {
+      "id": 23,
+      "prompt": "[Ambient mode armed; user is mid-debugging across several turns] The stack trace still shows the null pointer — try the next fix.",
+      "expected_output": "Debugging help only, NO quiz mid-troubleshooting (gate 6). Once the bug is confirmed fixed and the task reaches a checkpoint, one quiz on something the session taught may follow, and the reply hands straight back to the main thread.",
+      "files": []
+    },
+    {
+      "id": 24,
+      "prompt": "[User answers a quiz incorrectly] Ugh, this quiz thing is annoying and confusing.",
+      "expected_output": "Gracious, non-defensive response: the kind two-sentence correction stands, the frustration is acknowledged briefly, and quizzing stops for the session (treated as opt-out) with no re-pitch and no justification of the feature.",
+      "files": []
+    }
+  ]
+}
